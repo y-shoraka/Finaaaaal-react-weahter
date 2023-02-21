@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+}
+
+form input{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 8px;
+   margin: 20px 10px;
+}
+.submit{
+    border: none;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgb(48, 108, 219);
+    color: white;
+}
