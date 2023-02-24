@@ -6,7 +6,7 @@ export default function Weather() {
   let [City, SetCity] = useState("");
   let [temprature, setTemprature] = useState("");
   function ShowResult(response) {
-    console.log(response.data);
+    console.log(response);
     setTemprature(
       <div>
         <li>Tempreture : {Math.round(response.data.main.temp)}°C </li>
@@ -17,6 +17,7 @@ export default function Weather() {
     );
   }
   function getResult(event) {
+    
     event.preventDefault();
 
     let apiKey = "5122c73584c58f76c2670a7ce4d20f3a";
