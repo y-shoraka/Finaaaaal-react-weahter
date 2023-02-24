@@ -6,7 +6,7 @@ export default function App() {
     <div className="App">
       <header className="App-header">
         <Weather />
-        <p>
+        <p className="Footer">
           <a
             href="https://github.com/y-shoraka/react-weather"
             target={"_blank"}

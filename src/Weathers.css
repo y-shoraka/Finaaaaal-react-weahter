@@ -22,4 +22,10 @@ body {
     text-align: left;
     margin: 0 35%;
   }
+.Footer{
+
+  display: block;
+  margin: 100px auto;
+  text-align: center;
   
+}  
