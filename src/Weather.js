@@ -5,11 +5,14 @@ import axios from "axios";
 export default function Weather() {
   let [City, SetCity] = useState("");
   let [temprature, setTemprature] = useState("");
+  function ShowForecast(response){
+    console.log(response)
+  }
   function ShowResult(response) {
     console.log(response);
     setTemprature(
       <div>
-        <li>Tempreture : {Math.round(response.data.main.temp)}°C </li>
+       <li>Tempreture : {Math.round(response.data.main.temp)}°C </li>
         <li>Humidity : {response.data.main.humidity}%</li>
         <li>Wind : {Math.round(response.data.wind.speed)} Km/hr</li>
         <li>Feels like : {Math.round(response.data.main.feels_like)}°C </li>
@@ -27,6 +30,7 @@ export default function Weather() {
         `https://api.openweathermap.org/data/2.5/weather?q=${City.target.value}&appid=${apiKey}&units=metric`
       )
       .then(ShowResult);
+      axios.get(`https://api.shecodes.io/weather/v1/forecast?query=${City.target.value}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`).then(ShowForecast)
   }
   return (
     <div>
