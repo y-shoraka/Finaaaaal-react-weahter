@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import CanvasJSReact from './canvasjs.react';
+import weather from "./Weather" ; 
+import axios from 'axios';
 var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart; 
+
+function humidity(response){
+console.log(response.data);
+}
+firstData();
+function firstData(){
+        axios
+        .get(
+          `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+        )
+        .then(humidity); 
+    }
 class Chart extends Component {
+   
 	render() {
 		const options = {
             backgroundColor: "#101016" ,
@@ -13,6 +28,7 @@ class Chart extends Component {
             margin: 10 ,
             color:"grey" ,
 			title: {
+                fontColor: "white",
 				text: "Humidity"
 			},
 			data: [

@@ -133,12 +133,12 @@ export default function Weather() {
       </div>
     );
   }
-  firstData();
-  function firstData(){
+  firstData("london");
+  function firstData(props){
       
       axios
       .get(
-        `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+        `https://api.shecodes.io/weather/v1/forecast?query=${props}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
       .then(ShowForecast); 
   }
@@ -305,7 +305,7 @@ export default function Weather() {
           </div>
         </div>
         <div className="columns2">
-          <div><Chart/></div>
+          <div><Chart forecastCity={SubmittedCity}/></div>
           <div>popular cities</div>
         </div>
       </div>
