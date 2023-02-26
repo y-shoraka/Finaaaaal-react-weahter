@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState  , useEffect} from "react";
 import "./Weathers.css";
 import axios from "axios";
 import Chart from "./Chart";
@@ -116,14 +116,13 @@ export default function Weather() {
       response.data.daily[6].temperature.day,
     ]);
   }
-  /*firstData("london");
-  function firstData(name){
-  axios
-  .get(
-  `https://api.shecodes.io/weather/v1/forecast?query=${name}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-  )
-  .then(ShowForecast);
-  }*/
+
+  useEffect(()=> {axios
+    .get(
+    `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+    )
+    .then(ShowForecast);} , [])
+  
   function ShowResult(response) {
     setSubmittedCity(City.target.value);
     //console.log(response);
