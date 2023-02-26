@@ -14,7 +14,7 @@ export default function Weather() {
   let [DefStyle7, setDefStyle7] = useState("eachDay");
   let [City, SetCity] = useState("Tehran");
   let [temperature, setTemperature] = useState("");
-  let [SubmittedCity, setSubmittedCity] = useState("Yazd");
+  let [SubmittedCity, setSubmittedCity] = useState("london");
   let photoSrc1 = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" ; 
   let [imgSrc, setImgSrc] = useState([photoSrc1 ,photoSrc1 , ]);
   let [forTemp, setForTemp] = useState([10 ,6,8,7,6,5,9] );
@@ -133,6 +133,18 @@ export default function Weather() {
       </div>
     );
   }
+  firstData();
+  function firstData(){
+      
+      axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+      )
+      .then(ShowForecast); 
+  }
+  
+    
+ 
   function getResult(event) {
     event.preventDefault();
 
