@@ -1,31 +1,181 @@
 body {
-    text-align: center;
-  }
-  
-  form input {
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 8px;
-    margin: 20px 10px;
-  }
-  .submit {
-    border: none;
-    font-weight: 700;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: rgb(48, 108, 219);
-    color: white;
-  }
-  
-  li {
-    list-style: none;
-    text-align: left;
-    margin: 0 35%;
-  }
-.Footer{
+  font-family: 'Russo One', sans-serif;
+  font-weight: 100;
+  color: white;
+  background-color: #101015;
+  text-align: center;
+}
+
+form input {
+  color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px;
+  margin: 20px 10px;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+form {
+  display: inline-block;
+}
+
+.searchBar {
+  padding: 10px 15px;
+  background-color: #1E1E1E;
+  border-radius: 16px;
+  width: 50vw;
+}
+
+.searchBar ::placeholder {
+  color: white;
+}
+
+ul,
+.dayButtons {
+  display: flex;
+  text-align: left;
+  justify-content: flex-start;
+
+}
+
+.dayButtons li {
+  margin: 10px;
+}
+
+.notActivated {
+  color: grey
+}
+
+li::selection {
+  color: white;
+}
+
+.submit {
+  border: none;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: rgb(48, 108, 219);
+  color: white;
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  margin: 0 35%;
+}
+
+.Footer {
 
   display: block;
   margin: 100px auto;
   text-align: center;
+
+}
+
+.Location i {
+  color: white;
+}
+
+.daysForecast {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+li,
+#eachDay {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.eachDay {
+  margin: 10px 10px;
+  padding: 10px 5px;
+  position: relative;
+  width: 100px;
+  display: inline;
+  text-decoration: none;
+  color: white;
+  display: inline;
+  background-color: grey;
+  border-radius: 16px;
+  text-align: center;
+  align-items: center;
+ 
   
-}  
+}
+.eachDay .number{
+  text-align: center;
+font-size: 2rem;
+}
+
+.MainFlex {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.selectedDay {
+margin: 10px 10px;
+  background-color: #BBD8EC !important;
+  min-width: 200px;
+  color: #101015!important;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.selectedDay h5 .number{
+  font-size: 3rem;
+}
+.eachDay .hour {
+  display: none;
+}
+.eachDay .extraInfo{
+  display: none;
+}
+
+.selectedDay .hour {
+  display: inline;
+} 
+.selectedDay .selectedHeader {
+  padding: 10px 5px;
+  border-radius: 16px 16px 0 0;
+  background-color: #ADCADE;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+.selectedDay a .extraInfo{
+ display: block;
+  margin: 0 auto;
+  padding: 15px;
+  color: #101015;
+}
+
+.selectedDay hr {
+  display: none;
+}
+
+.eachDay hr {
+  margin: 10px 20%;
+}
+
+.mainPart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.columns2{
+ width :200px
+}
