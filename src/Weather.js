@@ -1,10 +1,13 @@
-import React, { useState  , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./Weathers.css";
 import axios from "axios";
 import Chart from "./Chart";
 
 export default function Weather() {
-  let [extraInfo, setExtraInfo] = useState("");
+  let photoSrc1 =
+    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
+  let [CalImg , setCalImg]=useState(photoSrc1)  ;
+  let [CalTemp , setCalTemp] = useState("29");
   let [DefStyle1, setDefStyle1] = useState("selectedDay");
   let [DefStyle2, setDefStyle2] = useState("eachDay");
   let [DefStyle3, setDefStyle3] = useState("eachDay");
@@ -15,8 +18,7 @@ export default function Weather() {
   let [City, SetCity] = useState("Tehran");
   let [temperature, setTemperature] = useState("");
   let [SubmittedCity, setSubmittedCity] = useState("london");
-  let photoSrc1 =
-    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
+  
   let [imgSrc, setImgSrc] = useState([photoSrc1, photoSrc1]);
   let [forTemp, setForTemp] = useState([10, 6, 8, 7, 6, 5, 9]);
   let weekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -90,10 +92,7 @@ export default function Weather() {
   function Stop(event) {
     event.preventDefault();
   }
-  function ChangeStyle(event) {
-    event.preventDefault();
-    setExtraInfo("hi");
-  }
+ 
 
   function ShowForecast(response) {
     setImgSrc([
@@ -116,13 +115,28 @@ export default function Weather() {
       response.data.daily[6].temperature.day,
     ]);
   }
+  function ShowColifornia(response){
+    //setCalTemp(response.data.daily[0].temperature.day);
+    console.log(response.data);
+    //setCalImg(response.data.daily[0].condition.icon_url);
+  }
 
-  useEffect(()=> {axios
-    .get(
-    `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-    )
-    .then(ShowForecast);} , [])
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+      )
+      .then(ShowForecast);
+  }, []);
+  /*useEffect(() => {
   
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?query=california&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+        )
+      .then(ShowColifornia);
+  }, []);
+*/
   function ShowResult(response) {
     setSubmittedCity(City.target.value);
     //console.log(response);
@@ -147,7 +161,6 @@ export default function Weather() {
       </div>
     );
   }
-  
 
   function getResult(event) {
     event.preventDefault();
@@ -312,7 +325,31 @@ export default function Weather() {
           <div>
             <Chart forecastCity={SubmittedCity} />
           </div>
-          <div>popular cities</div>
+          <div>
+            <h4 className="otherCity" >Other large cities</h4>
+            <div className="popularCity">
+              <div>
+                <div className="country" >Us</div>
+                <div>Colirfornia</div>
+                <div className="description">Mostly Sunny</div>
+              </div>
+              <div>
+                <div><img className="popularImg" src={CalImg} /></div>
+                <div className="description">{Math.round(CalTemp) }°C</div>
+              </div>
+            </div>
+            <div className="popularCity">
+              <div>
+              <div className="country" >Us</div>
+                <div>Colirfornia</div>
+                <div className="description">Mostly Sunny</div>
+              </div>
+              <div>
+                <div>icon</div>
+                <div className="description">29°C</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
