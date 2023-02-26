@@ -105,7 +105,7 @@ export default function Weather() {
       response.data.daily[5].condition.icon_url,
       response.data.daily[6].condition.icon_url,
     ]);
-    console.log(response.data.daily[0]);
+    //console.log(response.data.daily[0]);
     setForTemp([
       response.data.daily[0].temperature.day,
       response.data.daily[1].temperature.day,
@@ -116,9 +116,17 @@ export default function Weather() {
       response.data.daily[6].temperature.day,
     ]);
   }
+  /*firstData("london");
+  function firstData(name){
+  axios
+  .get(
+  `https://api.shecodes.io/weather/v1/forecast?query=${name}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+  )
+  .then(ShowForecast);
+  }*/
   function ShowResult(response) {
     setSubmittedCity(City.target.value);
-    console.log(response);
+    //console.log(response);
     setTemperature(
       <div>
         <li>
@@ -140,20 +148,13 @@ export default function Weather() {
       </div>
     );
   }
-  //firstData("london");
-  //function firstData(props){
-  //axios
-  //.get(
-  //`https://api.shecodes.io/weather/v1/forecast?query=${props}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-  //)
-  //.then(ShowForecast);
-  //}
+  
 
   function getResult(event) {
     event.preventDefault();
 
     let apiKey = "5122c73584c58f76c2670a7ce4d20f3a";
-    console.log(City.target.value);
+    //console.log(City.target.value);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${City.target.value}&appid=${apiKey}&units=metric`
