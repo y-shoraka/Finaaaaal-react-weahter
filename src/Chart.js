@@ -5,7 +5,7 @@ import axios from 'axios';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart; 
 
-function humidity(response){
+/*function humidity(response){
 console.log(response.data);
 }
 firstData();
@@ -15,7 +15,7 @@ function firstData(){
           `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
         )
         .then(humidity); 
-    }
+    }*/
 class Chart extends Component {
    
 	render() {

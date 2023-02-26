@@ -15,9 +15,10 @@ export default function Weather() {
   let [City, SetCity] = useState("Tehran");
   let [temperature, setTemperature] = useState("");
   let [SubmittedCity, setSubmittedCity] = useState("london");
-  let photoSrc1 = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" ; 
-  let [imgSrc, setImgSrc] = useState([photoSrc1 ,photoSrc1 , ]);
-  let [forTemp, setForTemp] = useState([10 ,6,8,7,6,5,9] );
+  let photoSrc1 =
+    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
+  let [imgSrc, setImgSrc] = useState([photoSrc1, photoSrc1]);
+  let [forTemp, setForTemp] = useState([10, 6, 8, 7, 6, 5, 9]);
   let weekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let CurrentDate = new Date();
   let currentDay = CurrentDate.getDay();
@@ -121,30 +122,33 @@ export default function Weather() {
     setTemperature(
       <div>
         <li>
-          Feels like :{" "}<span className="detailKey" >{Math.round(response.data.main.feels_like)}°C</span>
-          
+          Feels like :{" "}
+          <span className="detailKey">
+            {Math.round(response.data.main.feels_like)}°C
+          </span>
         </li>
         <li>
-          Humidity :{" "}<span className="detailKey" >{response.data.main.humidity}%</span> 
+          Humidity :{" "}
+          <span className="detailKey">{response.data.main.humidity}%</span>
         </li>
         <li>
-          Wind :{" "}<span className="detailKey" >{Math.round(response.data.wind.speed)} Km/hr</span> 
+          Wind :{" "}
+          <span className="detailKey">
+            {Math.round(response.data.wind.speed)} Km/hr
+          </span>
         </li>
       </div>
     );
   }
-  firstData("london");
-  function firstData(props){
-      
-      axios
-      .get(
-        `https://api.shecodes.io/weather/v1/forecast?query=${props}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-      )
-      .then(ShowForecast); 
-  }
-  
-    
- 
+  //firstData("london");
+  //function firstData(props){
+  //axios
+  //.get(
+  //`https://api.shecodes.io/weather/v1/forecast?query=${props}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+  //)
+  //.then(ShowForecast);
+  //}
+
   function getResult(event) {
     event.preventDefault();
 
@@ -165,7 +169,8 @@ export default function Weather() {
     <div>
       <div className="Header">
         <span className="Location">
-          <i class="fa-sharp fa-solid fa-location-dot"></i> {SubmittedCity.charAt(0).toUpperCase()+ SubmittedCity.slice(1) }
+          <i class="fa-sharp fa-solid fa-location-dot"></i>{" "}
+          {SubmittedCity.charAt(0).toUpperCase() + SubmittedCity.slice(1)}
         </span>
         <form onSubmit={getResult}>
           <input
@@ -187,7 +192,6 @@ export default function Weather() {
         </ul>
       </div>
       <div className="mainPart">
-        
         <div className="coluums">
           <div className="daysForecast">
             <li className={DefStyle1} onClick={set1}>
@@ -305,7 +309,9 @@ export default function Weather() {
           </div>
         </div>
         <div className="columns2">
-          <div><Chart forecastCity={SubmittedCity}/></div>
+          <div>
+            <Chart forecastCity={SubmittedCity} />
+          </div>
           <div>popular cities</div>
         </div>
       </div>
