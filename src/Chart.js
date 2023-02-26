@@ -6,6 +6,7 @@ class Chart extends Component {
 	render() {
 		const options = {
             backgroundColor: "#101016" ,
+            animationEnabled: true,
             dataPointWidth: 10 ,
             height: 200, 
             width:200,
@@ -15,7 +16,9 @@ class Chart extends Component {
 				text: "Humidity"
 			},
 			data: [
+                
 			{
+                color:"#BBD8EC",
 				// Change type to "doughnut", "line", "splineArea", etc.
 				type: "column",
 				dataPoints: [

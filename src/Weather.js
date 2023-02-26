@@ -12,11 +12,12 @@ export default function Weather() {
   let [DefStyle5, setDefStyle5] = useState("eachDay");
   let [DefStyle6, setDefStyle6] = useState("eachDay");
   let [DefStyle7, setDefStyle7] = useState("eachDay");
-  let [City, SetCity] = useState("");
+  let [City, SetCity] = useState("Tehran");
   let [temperature, setTemperature] = useState("");
-  let [SubmittedCity, setSubmittedCity] = useState("Tehran");
-  let [imgSrc, setImgSrc] = useState("/");
-  let [forTemp, setForTemp] = useState("10°C");
+  let [SubmittedCity, setSubmittedCity] = useState("Yazd");
+  let photoSrc1 = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" ; 
+  let [imgSrc, setImgSrc] = useState([photoSrc1 ,photoSrc1 , ]);
+  let [forTemp, setForTemp] = useState([10 ,6,8,7,6,5,9] );
   let weekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let CurrentDate = new Date();
   let currentDay = CurrentDate.getDay();
