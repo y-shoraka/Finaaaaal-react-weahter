@@ -120,14 +120,14 @@ export default function Weather() {
     setTemperature(
       <div>
         <li>
-          <strong>Feels like :</strong>{" "}
-          {Math.round(response.data.main.feels_like)}°C{" "}
+          Feels like :{" "}<span className="detailKey" >{Math.round(response.data.main.feels_like)}°C</span>
+          
         </li>
         <li>
-          <strong>Humidity :</strong> {response.data.main.humidity}%
+          Humidity :{" "}<span className="detailKey" >{response.data.main.humidity}%</span> 
         </li>
         <li>
-          <strong>Wind :</strong> {Math.round(response.data.wind.speed)} Km/hr
+          Wind :{" "}<span className="detailKey" >{Math.round(response.data.wind.speed)} Km/hr</span> 
         </li>
       </div>
     );

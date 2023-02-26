@@ -1,6 +1,6 @@
 body {
-  font-family: 'Russo One', sans-serif;
-  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   color: white;
   background-color: #101015;
   text-align: center;
@@ -163,6 +163,9 @@ margin: 10px 10px;
   color: #101015;
 }
 
+.detailKey{
+  font-weight: 600;
+}
 .selectedDay hr {
   display: none;
 }
