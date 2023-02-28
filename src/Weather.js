@@ -38,7 +38,6 @@ export default function Weather() {
   let time = `${CurrentDate.getHours()}:${CurrentDate.getMinutes()}`;
 
   function set1() {
-    ShowResult(Min[0], Max[0], Humidity[0], Wind[0]);
     setDefStyle1("selectedDay");
     setDefStyle2("eachDay");
     setDefStyle3("eachDay");
@@ -48,7 +47,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set2() {
-    ShowResult(Min[1], Max[1], Humidity[1], Wind[1]);
     setDefStyle2("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle3("eachDay");
@@ -58,7 +56,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set3() {
-    ShowResult(Min[2], Max[2], Humidity[2], Wind[2]);
     setDefStyle3("selectedDay");
     setDefStyle2("eachDay");
     setDefStyle1("eachDay");
@@ -68,7 +65,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set4() {
-    ShowResult(Min[3], Max[3], Humidity[3], Wind[3]);
     setDefStyle4("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -78,7 +74,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set5() {
-    ShowResult(Min[4], Max[4], Humidity[4], Wind[4]);
+  
     setDefStyle5("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -88,7 +84,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set6() {
-    ShowResult(Min[5], Max[5], Humidity[5], Wind[5]);
+ 
     setDefStyle6("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -98,7 +94,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set7() {
-    ShowResult(Min[6], Max[6], Humidity[6], Wind[6]);
+   
     setDefStyle7("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -191,11 +187,7 @@ export default function Weather() {
         `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
       .then(ShowForecast);
-    axios
-      .get(
-        `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-      )
-      .then(ShowResult(2, 8, 44, 5));
+    
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=san-francisco&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
@@ -208,24 +200,7 @@ export default function Weather() {
       .then(ShowSingapore);
   }, []);
 
-  function ShowResult(eachMin, eachMax, eachHumidity, eachWind) {
-    setTemperature(
-      <div>
-        <li>
-          Maximum : <span className="detailKey">{Math.ceil(eachMax)}°C</span>
-        </li>
-        <li>
-          Minimum : <span className="detailKey">{Math.floor(eachMin)}°C</span>
-        </li>
-        <li>
-          Humidity : <span className="detailKey">{eachHumidity}%</span>
-        </li>
-        <li>
-          Wind : <span className="detailKey">{Math.round(eachWind)} Km/hr</span>
-        </li>
-      </div>
-    );
-  }
+ 
 
   function getResult(event) {
     event.preventDefault();
@@ -285,7 +260,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[0])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[0])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[0])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[0]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[0])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle2} onClick={set2}>
@@ -301,7 +297,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[1])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[1])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[1])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[1]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[1])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle3} onClick={set3}>
@@ -317,7 +334,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[2])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[2])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[2])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[2]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[2])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle4} onClick={set4}>
@@ -333,7 +371,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[3])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[3])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[3])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[3]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[3])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle5} onClick={set5}>
@@ -349,7 +408,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[4])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[4])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[4])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[4]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[4])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle6} onClick={set6}>
@@ -365,7 +445,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[5])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[5])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[5])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[5]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[5])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
             <li className={DefStyle7} onClick={set7}>
@@ -381,7 +482,28 @@ export default function Weather() {
                     <span className="number">{Math.round(forTemp[6])}</span>°C
                   </h5>{" "}
                 </div>
-                <div className="extraInfo">{temperature}</div>
+                <div className="extraInfo">
+                  <div>
+                    <li>
+                      Maximum :{" "}
+                      <span className="detailKey">{Math.ceil(Max[6])}°C</span>
+                    </li>
+                    <li>
+                      Minimum :{" "}
+                      <span className="detailKey">{Math.floor(Min[6])}°C</span>
+                    </li>
+                    <li>
+                      Humidity :{" "}
+                      <span className="detailKey">{Humidity[6]}%</span>
+                    </li>
+                    <li>
+                      Wind :{" "}
+                      <span className="detailKey">
+                        {Math.round(Wind[6])} Km/hr
+                      </span>
+                    </li>
+                  </div>
+                </div>
               </a>
             </li>
           </div>
