@@ -2,17 +2,24 @@ import React, { useState, useEffect } from "react";
 import "./Weathers.css";
 import axios from "axios";
 import Chart from "./Chart";
+import WorldMap from "./img/WorldMap.svg";
+import worldMap2 from "./img/worldMap2.png";
 
 export default function Weather() {
   let photoSrc1 =
     "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
-  let [CalImg , setCalImg]=useState(photoSrc1)  ;
-  let [CalTemp , setCalTemp] = useState("29");
-  let [description , setDescription] = useState("Mostly Sunny");
-  let [CalImg2 , setCalImg2]=useState(photoSrc1)  ;
-  let [CalTemp2 , setCalTemp2] = useState("29");
-  let [description2 , setDescription2] = useState("Mostly Sunny");
+
+  let [CalImg, setCalImg] = useState(photoSrc1);
+  let [CalTemp, setCalTemp] = useState("29");
+  let [description, setDescription] = useState("Mostly Sunny");
+  let [CalImg2, setCalImg2] = useState(photoSrc1);
+  let [CalTemp2, setCalTemp2] = useState("29");
+  let [description2, setDescription2] = useState("Mostly Sunny");
   let [DefStyle1, setDefStyle1] = useState("selectedDay");
+  let [Max, setMax] = useState("10");
+  let [Min, setMin] = useState("10");
+  let [Humidity, setHumidity] = useState("44%");
+  let [Wind, setWind] = useState("4km/hr");
   let [DefStyle2, setDefStyle2] = useState("eachDay");
   let [DefStyle3, setDefStyle3] = useState("eachDay");
   let [DefStyle4, setDefStyle4] = useState("eachDay");
@@ -22,7 +29,7 @@ export default function Weather() {
   let [City, SetCity] = useState("Tehran");
   let [temperature, setTemperature] = useState("");
   let [SubmittedCity, setSubmittedCity] = useState("london");
-  
+
   let [imgSrc, setImgSrc] = useState([photoSrc1, photoSrc1]);
   let [forTemp, setForTemp] = useState([10, 6, 8, 7, 6, 5, 9]);
   let weekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -31,6 +38,7 @@ export default function Weather() {
   let time = `${CurrentDate.getHours()}:${CurrentDate.getMinutes()}`;
 
   function set1() {
+    ShowResult(Min[0], Max[0], Humidity[0], Wind[0]);
     setDefStyle1("selectedDay");
     setDefStyle2("eachDay");
     setDefStyle3("eachDay");
@@ -40,6 +48,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set2() {
+    ShowResult(Min[1], Max[1], Humidity[1], Wind[1]);
     setDefStyle2("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle3("eachDay");
@@ -49,6 +58,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set3() {
+    ShowResult(Min[2], Max[2], Humidity[2], Wind[2]);
     setDefStyle3("selectedDay");
     setDefStyle2("eachDay");
     setDefStyle1("eachDay");
@@ -58,6 +68,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set4() {
+    ShowResult(Min[3], Max[3], Humidity[3], Wind[3]);
     setDefStyle4("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -67,6 +78,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set5() {
+    ShowResult(Min[4], Max[4], Humidity[4], Wind[4]);
     setDefStyle5("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -76,6 +88,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set6() {
+    ShowResult(Min[5], Max[5], Humidity[5], Wind[5]);
     setDefStyle6("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -85,6 +98,7 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set7() {
+    ShowResult(Min[6], Max[6], Humidity[6], Wind[6]);
     setDefStyle7("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -97,9 +111,9 @@ export default function Weather() {
   function Stop(event) {
     event.preventDefault();
   }
- 
 
   function ShowForecast(response) {
+    console.log(response);
     setImgSrc([
       response.data.daily[0].condition.icon_url,
       response.data.daily[1].condition.icon_url,
@@ -108,6 +122,42 @@ export default function Weather() {
       response.data.daily[4].condition.icon_url,
       response.data.daily[5].condition.icon_url,
       response.data.daily[6].condition.icon_url,
+    ]);
+    setMax([
+      response.data.daily[0].temperature.maximum,
+      response.data.daily[1].temperature.maximum,
+      response.data.daily[2].temperature.maximum,
+      response.data.daily[3].temperature.maximum,
+      response.data.daily[4].temperature.maximum,
+      response.data.daily[5].temperature.maximum,
+      response.data.daily[6].temperature.maximum,
+    ]);
+    setMin([
+      response.data.daily[0].temperature.minimum,
+      response.data.daily[1].temperature.minimum,
+      response.data.daily[2].temperature.minimum,
+      response.data.daily[3].temperature.minimum,
+      response.data.daily[4].temperature.minimum,
+      response.data.daily[5].temperature.minimum,
+      response.data.daily[6].temperature.minimum,
+    ]);
+    setWind([
+      response.data.daily[0].wind.speed,
+      response.data.daily[1].wind.speed,
+      response.data.daily[2].wind.speed,
+      response.data.daily[3].wind.speed,
+      response.data.daily[4].wind.speed,
+      response.data.daily[5].wind.speed,
+      response.data.daily[6].wind.speed,
+    ]);
+    setHumidity([
+      response.data.daily[0].temperature.humidity,
+      response.data.daily[1].temperature.humidity,
+      response.data.daily[2].temperature.humidity,
+      response.data.daily[3].temperature.humidity,
+      response.data.daily[4].temperature.humidity,
+      response.data.daily[5].temperature.humidity,
+      response.data.daily[6].temperature.humidity,
     ]);
     //console.log(response.data.daily[0]);
     setForTemp([
@@ -119,15 +169,16 @@ export default function Weather() {
       response.data.daily[5].temperature.day,
       response.data.daily[6].temperature.day,
     ]);
+    set1();
   }
-  function ShowColifornia(response){
+  function ShowColifornia(response) {
     setCalTemp(response.data.daily[0].temperature.day);
     console.log(response.data);
     setCalImg(response.data.daily[0].condition.icon_url);
     setDescription(response.data.daily[0].condition.description);
   }
 
-  function ShowSingapore(response){
+  function ShowSingapore(response) {
     setCalTemp2(response.data.daily[0].temperature.day);
     console.log(response.data);
     setCalImg2(response.data.daily[0].condition.icon_url);
@@ -140,38 +191,37 @@ export default function Weather() {
         `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
       .then(ShowForecast);
-      axios
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+      )
+      .then(ShowResult(2, 8, 44, 5));
+    axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=san-francisco&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-        )
+      )
       .then(ShowColifornia);
-      axios
+    axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=singapore&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
-        )
+      )
       .then(ShowSingapore);
   }, []);
 
-  function ShowResult(response) {
-    setSubmittedCity(City.target.value);
-    //console.log(response);
+  function ShowResult(eachMin, eachMax, eachHumidity, eachWind) {
     setTemperature(
       <div>
         <li>
-          Feels like :{" "}
-          <span className="detailKey">
-            {Math.round(response.data.main.feels_like)}°C
-          </span>
+          Maximum : <span className="detailKey">{Math.ceil(eachMax)}°C</span>
         </li>
         <li>
-          Humidity :{" "}
-          <span className="detailKey">{response.data.main.humidity}%</span>
+          Minimum : <span className="detailKey">{Math.floor(eachMin)}°C</span>
         </li>
         <li>
-          Wind :{" "}
-          <span className="detailKey">
-            {Math.round(response.data.wind.speed)} Km/hr
-          </span>
+          Humidity : <span className="detailKey">{eachHumidity}%</span>
+        </li>
+        <li>
+          Wind : <span className="detailKey">{Math.round(eachWind)} Km/hr</span>
         </li>
       </div>
     );
@@ -184,14 +234,14 @@ export default function Weather() {
     //console.log(City.target.value);
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${City.target.value}&appid=${apiKey}&units=metric`
+        `https://api.shecodes.io/weather/v1/forecast?query=${City.target.value}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
-      .then(ShowResult);
+      .then(ShowForecast);
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=${City.target.value}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
-      .then(ShowForecast);
+      .then(setSubmittedCity(City.target.value));
   }
   return (
     <div>
@@ -335,32 +385,57 @@ export default function Weather() {
               </a>
             </li>
           </div>
+          <div>
+            <img className="mapImg" src={worldMap2} />
+          </div>
+          <p className="Footer">
+            <a
+              className="SourceCode"
+              href="https://github.com/y-shoraka/react-weather"
+              target={"_blank"}
+            >
+              Open-Source Code
+            </a>{" "}
+            , by Yasaman Shoraka from{" "}
+            <a
+              className="SourceCode"
+              href="https://www.shecodes.io/"
+              target={"_blank"}
+            >
+              SheCodes
+            </a>
+          </p>
         </div>
+
         <div className="columns2">
           <div>
             <Chart forecastCity={SubmittedCity} />
           </div>
           <div>
-            <h4 className="otherCity" >Other large cities</h4>
+            <h4 className="otherCity">Other large cities</h4>
             <div className="popularCity">
               <div>
-                <div className="country" >Us</div>
+                <div className="country">Us</div>
                 <div>Colirfornia</div>
                 <div className="description">{description}</div>
               </div>
               <div className="imgTemp">
-                <div><img className="popularImg" src={CalImg} /></div>
-                <div className="description">{Math.round(CalTemp) }°C</div>
+                <div>
+                  <img className="popularImg" src={CalImg} />
+                </div>
+                <div className="description">{Math.round(CalTemp)}°C</div>
               </div>
             </div>
             <div className="popularCity">
               <div>
-              <div className="country" >Singapore</div>
+                <div className="country">Singapore</div>
                 <div>Singapore</div>
                 <div className="description">{description2}</div>
               </div>
               <div className="imgTemp">
-                <div><img className="popularImg" src={CalImg2}/></div>
+                <div>
+                  <img className="popularImg" src={CalImg2} />
+                </div>
                 <div className="description">{Math.round(CalTemp2)}°C</div>
               </div>
             </div>
