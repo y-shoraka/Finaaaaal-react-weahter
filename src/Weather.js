@@ -8,6 +8,10 @@ export default function Weather() {
     "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png";
   let [CalImg , setCalImg]=useState(photoSrc1)  ;
   let [CalTemp , setCalTemp] = useState("29");
+  let [description , setDescription] = useState("Mostly Sunny");
+  let [CalImg2 , setCalImg2]=useState(photoSrc1)  ;
+  let [CalTemp2 , setCalTemp2] = useState("29");
+  let [description2 , setDescription2] = useState("Mostly Sunny");
   let [DefStyle1, setDefStyle1] = useState("selectedDay");
   let [DefStyle2, setDefStyle2] = useState("eachDay");
   let [DefStyle3, setDefStyle3] = useState("eachDay");
@@ -82,6 +86,7 @@ export default function Weather() {
   }
   function set7() {
     setDefStyle7("selectedDay");
+    setDefStyle1("eachDay");
     setDefStyle2("eachDay");
     setDefStyle3("eachDay");
     setDefStyle4("eachDay");
@@ -116,9 +121,17 @@ export default function Weather() {
     ]);
   }
   function ShowColifornia(response){
-    //setCalTemp(response.data.daily[0].temperature.day);
+    setCalTemp(response.data.daily[0].temperature.day);
     console.log(response.data);
-    //setCalImg(response.data.daily[0].condition.icon_url);
+    setCalImg(response.data.daily[0].condition.icon_url);
+    setDescription(response.data.daily[0].condition.description);
+  }
+
+  function ShowSingapore(response){
+    setCalTemp2(response.data.daily[0].temperature.day);
+    console.log(response.data);
+    setCalImg2(response.data.daily[0].condition.icon_url);
+    setDescription2(response.data.daily[0].condition.description);
   }
 
   useEffect(() => {
@@ -127,16 +140,18 @@ export default function Weather() {
         `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
       .then(ShowForecast);
-  }, []);
-  /*useEffect(() => {
-  
-    axios
+      axios
       .get(
-        `https://api.shecodes.io/weather/v1/forecast?query=california&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+        `https://api.shecodes.io/weather/v1/forecast?query=san-francisco&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
         )
       .then(ShowColifornia);
+      axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?query=singapore&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
+        )
+      .then(ShowSingapore);
   }, []);
-*/
+
   function ShowResult(response) {
     setSubmittedCity(City.target.value);
     //console.log(response);
@@ -331,22 +346,22 @@ export default function Weather() {
               <div>
                 <div className="country" >Us</div>
                 <div>Colirfornia</div>
-                <div className="description">Mostly Sunny</div>
+                <div className="description">{description}</div>
               </div>
-              <div>
+              <div className="imgTemp">
                 <div><img className="popularImg" src={CalImg} /></div>
                 <div className="description">{Math.round(CalTemp) }°C</div>
               </div>
             </div>
             <div className="popularCity">
               <div>
-              <div className="country" >Us</div>
-                <div>Colirfornia</div>
-                <div className="description">Mostly Sunny</div>
+              <div className="country" >Singapore</div>
+                <div>Singapore</div>
+                <div className="description">{description2}</div>
               </div>
-              <div>
-                <div>icon</div>
-                <div className="description">29°C</div>
+              <div className="imgTemp">
+                <div><img className="popularImg" src={CalImg2}/></div>
+                <div className="description">{Math.round(CalTemp2)}°C</div>
               </div>
             </div>
           </div>
