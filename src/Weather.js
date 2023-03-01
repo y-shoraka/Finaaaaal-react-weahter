@@ -74,7 +74,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set5() {
-  
     setDefStyle5("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -84,7 +83,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set6() {
- 
     setDefStyle6("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -94,7 +92,6 @@ export default function Weather() {
     setDefStyle7("eachDay");
   }
   function set7() {
-   
     setDefStyle7("selectedDay");
     setDefStyle1("eachDay");
     setDefStyle2("eachDay");
@@ -187,7 +184,7 @@ export default function Weather() {
         `https://api.shecodes.io/weather/v1/forecast?query=london&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
       )
       .then(ShowForecast);
-    
+
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=san-francisco&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
@@ -199,8 +196,7 @@ export default function Weather() {
       )
       .then(ShowSingapore);
   }, []);
-
- 
+  let a = 2;
 
   function getResult(event) {
     event.preventDefault();
