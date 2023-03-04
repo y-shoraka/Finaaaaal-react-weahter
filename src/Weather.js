@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Weathers.css";
 import axios from "axios";
 import Chart from "./Chart";
-import WorldMap from "./img/WorldMap.svg";
 import worldMap2 from "./img/worldMap2.png";
 
 export default function Weather() {
@@ -27,7 +26,6 @@ export default function Weather() {
   let [DefStyle6, setDefStyle6] = useState("eachDay");
   let [DefStyle7, setDefStyle7] = useState("eachDay");
   let [City, SetCity] = useState("Tehran");
-  let [temperature, setTemperature] = useState("");
   let [SubmittedCity, setSubmittedCity] = useState("london");
 
   let [imgSrc, setImgSrc] = useState([photoSrc1, photoSrc1]);
@@ -200,9 +198,6 @@ export default function Weather() {
 
   function getResult(event) {
     event.preventDefault();
-
-    let apiKey = "5122c73584c58f76c2670a7ce4d20f3a";
-    //console.log(City.target.value);
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=${City.target.value}&key=d622ab03edofbbtc80f362a442d6777c&units=metric`
@@ -232,19 +227,15 @@ export default function Weather() {
       </div>
       <div>
         <ul className="dayButtons">
-          <a>
             <li className="notActivated">Today</li>
-          </a>
-          <a>
             <li className="notActivated">Tomorrow</li>
-          </a>
         </ul>
       </div>
       <div className="mainPart">
         <div className="coluums">
           <div className="daysForecast">
             <li className={DefStyle1} onClick={set1}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[currentDay]}</strong>
                   <strong className="hour">{time}</strong>
@@ -281,7 +272,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle2} onClick={set2}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 1) % 7]}</strong>
                   <strong className="hour">{time}</strong>
@@ -318,7 +309,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle3} onClick={set3}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 2) % 7]}</strong>
                   <strong className="hour">{time}</strong>
@@ -355,7 +346,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle4} onClick={set4}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 3) % 7]}</strong>
                   <strong className="hour">{time}</strong>
@@ -392,7 +383,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle5} onClick={set5}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 4) % 7]}</strong>
                   <strong className="hour">{time}</strong>
@@ -429,7 +420,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle6} onClick={set6}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 5) % 7]}</strong>
                   <strong className="hour">hour</strong>
@@ -466,7 +457,7 @@ export default function Weather() {
               </a>
             </li>
             <li className={DefStyle7} onClick={set7}>
-              <a onClick={Stop} href="#">
+              <a onClick={Stop} href="/">
                 <div className="selectedHeader">
                   <strong>{weekDay[(currentDay + 6) % 7]}</strong>
                   <strong className="hour">hour</strong>
@@ -504,7 +495,7 @@ export default function Weather() {
             </li>
           </div>
           <div>
-            <img className="mapImg" src={worldMap2} />
+            <img className="mapImg" src={worldMap2}  alt="Map"/>
           </div>
           <p className="Footer">
             <a
@@ -539,7 +530,7 @@ export default function Weather() {
               </div>
               <div className="imgTemp">
                 <div>
-                  <img className="popularImg" src={CalImg} />
+                  <img className="popularImg" src={CalImg} alt="ColiforniaWeather" />
                 </div>
                 <div className="description">{Math.round(CalTemp)}°C</div>
               </div>
@@ -552,7 +543,7 @@ export default function Weather() {
               </div>
               <div className="imgTemp">
                 <div>
-                  <img className="popularImg" src={CalImg2} />
+                  <img className="popularImg" src={CalImg2} alt="SingaporeWeather" />
                 </div>
                 <div className="description">{Math.round(CalTemp2)}°C</div>
               </div>

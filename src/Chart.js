@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import CanvasJSReact from './canvasjs.react';
-import weather from "./Weather" ; 
-import axios from 'axios';
-var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart; 
 
 /*function humidity(response){
