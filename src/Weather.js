@@ -210,7 +210,7 @@ export default function Weather() {
       .then(setSubmittedCity(City.target.value));
   }
   return (
-    <div>
+    <div className="Body">
       <div className="Header">
         <span className="Location">
           <i class="fa-sharp fa-solid fa-location-dot"></i>{" "}

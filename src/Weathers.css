@@ -6,17 +6,22 @@ body {
   text-align: center;
 }
 
+.Body{
+  width: 100vw;
+  padding: 0 5%;
+}
 form input {
   color: white;
   border: 1px solid black;
   border-radius: 3px;
   padding: 8px;
-  margin: 20px 10px;
+  margin: 20px 0;
+  margin-right: 10px;
 }
 
 .Header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -28,7 +33,7 @@ form {
   padding: 10px 15px;
   background-color: #1E1E1E;
   border-radius: 16px;
-  width: 50vw;
+  width: 80vw;
 }
 
 .searchBar ::placeholder {
@@ -37,15 +42,16 @@ form {
 
 ul,
 .dayButtons {
-  margin: 0 0 10px 0 ;
-  display: flex;
-  text-align: left;
-  justify-content: flex-start;
+
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 0;
 
 }
 
 .dayButtons li {
-  margin: 10px;
+  margin-right: 10px;
 }
 
 .notActivated {
@@ -81,6 +87,10 @@ li {
 
 .Location i {
   color: white;
+  
+}
+.Location{
+  margin-right: 5%;
 }
 
 .daysForecast {
@@ -180,8 +190,8 @@ margin: 10px 10px;
 .mainPart{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 95vw;
+  justify-content: space-between;
+  
  
 }
 .columns2{
