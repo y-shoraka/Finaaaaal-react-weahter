@@ -7,7 +7,7 @@ body {
 }
 
 .Body{
-  width: 100vw;
+ 
   padding: 0 5%;
 }
 form input {
@@ -94,8 +94,6 @@ li {
 }
 
 .daysForecast {
-  width: 85%;
-  margin: 0 auto;
   display: flex;
   justify-content: space-around;
 
@@ -188,15 +186,12 @@ margin: 10px 10px;
 }
 
 .mainPart{
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
- 
 }
-.columns2{
- width :200px
-}
+
 .popularCity{
   text-align: left;
   margin-top: 25px;
@@ -235,9 +230,8 @@ margin: 10px 10px;
 .mapImg{
   
   display: block;
- margin:25px auto;
- margin-bottom: 10px;
-  width: 400px;
+ margin:50px auto;
+  width: 50%;
 }
 
 .SourceCode{

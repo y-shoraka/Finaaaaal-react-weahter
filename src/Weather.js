@@ -175,7 +175,7 @@ export default function Weather() {
     setCalImg2(response.data.daily[0].condition.icon_url);
     setDescription2(response.data.daily[0].condition.description);
   }
-
+   
   useEffect(() => {
     axios
       .get(
