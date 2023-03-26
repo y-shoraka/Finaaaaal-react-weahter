@@ -41,18 +41,21 @@ const Chart = (props) => {
       text: props.props,
       fontFamily: "sans-serif",
     },
+    toolTip: {
+      fontColor: "blueviolet",
+   },
     data: [
       {
         color: "#BBD8EC",
         type: "column",
         dataPoints: [
-          { label: "day1", y: humidityData[0] },
-          { label: "day2", y: humidityData[1] },
-          { label: "day3", y: humidityData[2] },
-          { label: "day4", y: humidityData[3] },
-          { label: "day5", y: humidityData[4] },
-          { label: "day5", y: humidityData[5] },
-          { label: "day5", y: humidityData[6] },
+          { label: "Day 1", y: humidityData[0] },
+          { label: "Day 2", y: humidityData[1] },
+          { label: "Day 3", y: humidityData[2] },
+          { label: "Day 4", y: humidityData[3] },
+          { label: "Day 5", y: humidityData[4] },
+          { label: "Day 5", y: humidityData[5] },
+          { label: "Day 5", y: humidityData[6] },
         ],
       },
     ],
