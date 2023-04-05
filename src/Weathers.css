@@ -282,4 +282,7 @@ margin: 10px 10px;
    .extraInfo li{
     margin: 0 auto;
   }
+  .Header{
+    justify-content: center;
+  }
 }
