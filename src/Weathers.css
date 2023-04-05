@@ -53,12 +53,18 @@ ul,
 .dayButtons li {
   margin-right: 10px;
 }
+.selectedOne{
+  color: white;
+}
+.diselect{
+  color: #1E1E1E;
+}
 
 .notActivated {
   color: grey
 }
 
-li::selection {
+li ::selection {
   color: white;
 }
 
@@ -238,4 +244,42 @@ margin: 10px 10px;
   text-decoration: underline;
   font-weight: 700;
   color: white
+}
+@media only screen and (max-width: 990px) {
+  .body{
+    padding: 0;
+  }
+  .mapImg {
+    display: none;
+  }
+  .columns2{
+    display: none;
+  }
+  .daysForecast{
+    flex-direction: column;
+  }
+  .daysForecast li{
+    border-radius: 5px;
+    flex-direction: row;
+    width: 80vw;
+    margin: 10px auto;
+  }
+  .location{
+    margin:0
+  }
+  .searchBar{
+    width: 60vw;
+  }
+  .selectedDay{
+    margin: 0;
+  }
+  .mainPart{
+    justify-content: center;
+  }
+  .MainFlex{
+    justify-content: space-evenly;
+  }
+   .extraInfo li{
+    margin: 0 auto;
+  }
 }

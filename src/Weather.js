@@ -175,6 +175,7 @@ export default function Weather() {
     setCalImg2(response.data.daily[0].condition.icon_url);
     setDescription2(response.data.daily[0].condition.description);
   }
+ 
    
   useEffect(() => {
     axios
@@ -227,8 +228,8 @@ export default function Weather() {
       </div>
       <div>
         <ul className="dayButtons">
-            <li className="notActivated">Today</li>
-            <li className="notActivated">Tomorrow</li>
+            <li className="notActivated" onClick={set1}>Today</li>
+            <li className="notActivated" onClick={set2}>Tomorrow</li>
         </ul>
       </div>
       <div className="mainPart">
